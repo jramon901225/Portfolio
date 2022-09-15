@@ -44,6 +44,10 @@ p {
   border: thin solid red;
 }
 
+.none {
+  display: none;
+}
+
 /*==========site styles==========*/
 
 body {
@@ -53,10 +57,34 @@ body {
   margin: 0 auto;
   padding: 0;
   background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+.fade-in {
+  animation: fade-in 500ms ease-in-out forwards;
 }
 
 .img-container {
   max-width: 450px;
+}
+
+.links-container {
+  display: none;
+}
+
+.links-container-mobile {
+  text-align: center;
+  background-color: var(--navbar-color);
+}
+
+.links-container-mobile a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+main {
+  position: relative;
 }
 
 main div {
@@ -77,6 +105,40 @@ main .main-container p {
   color: var(--accentuate-color);
   font-size: 1.5rem;
   margin: 1rem;
+}
+
+.menu-button {
+  background: var(--accentuate-color);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+}
+
+.menu-button span {
+  display: block;
+  background-color: var(--text-color);
+  width: 24px;
+  height: 3px;
+  translate: 3px 8px;
+  transition: all 300ms ease-in-out;
+  transform-origin: 5px 2px;
+}
+
+.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.open span:nth-child(2) {
+  opacity: 0;
+}
+.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.menu-button span:not(:last-child) {
+  margin-bottom: 2px;
 }
 
 nav {
@@ -117,6 +179,24 @@ nav div svg {
     font-size: 2rem;
     text-align: center;
   }
+
+  .links-container {
+    display: block;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .links-container a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
+
+  .links-container-mobile {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -149,5 +229,25 @@ nav div svg {
     margin: 0;
     font-size: 3rem;
     text-align: left;
+  }
+
+  .links-container a {
+    margin-left: 4rem;
+  }
+}
+
+/*==========Keyframes==========*/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  1% {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
   }
 }
