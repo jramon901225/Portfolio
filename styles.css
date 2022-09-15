@@ -1,6 +1,6 @@
 /*
  Colores:
-  bacground-color: linear(#34ADFF 20% - #FFBF75 100%)
+  background-color: linear(#34ADFF 20% - #FFBF75 100%)
 */
 
 /*==========Variables==========*/
@@ -34,68 +34,120 @@ img {
   height: auto;
 }
 
-/*==========utilities==========*/
-.border {
-  border: thin solid red;
+p {
+  margin: 0;
 }
 
-.none {
-  display: none;
+/*==========utilities==========*/
+
+.border {
+  border: thin solid red;
 }
 
 /*==========site styles==========*/
 
 body {
+  max-width: 1440px;
+  min-width: 320px;
+  height: auto;
   margin: 0 auto;
   padding: 0;
-  min-width: 320px;
-  max-width: 1024px;
+  background-color: var(--background-color);
 }
 
-.nav {
-  width: 100%;
-  height: 35px;
-  background-color: var(--navbar-color);
+.img-container {
+  max-width: 450px;
+}
+
+main div {
+  margin: 0 auto;
+}
+
+main .main-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+main .main-container h2 {
+  color: var(--text-color);
+  font-size: 2.5rem;
+}
+
+main .main-container p {
+  color: var(--accentuate-color);
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  background-color: var(--navbar-color);
+  height: auto;
 }
 
-.nav div {
-  padding: 0 1rem;
+nav div {
+  padding: 0.5rem 1rem;
 }
 
-.nav div svg {
-  margin-left: 0.7rem;
+nav div svg {
+  margin-left: 1rem;
 }
 
-/*==========media querys==========*/
+/*==========media Qeuerys==========*/
 
-@media screen and (min-width: 768px) {
-  .links-container {
-    display: block;
+/*max-width mantiene activos los estilos cuando el tamaño de la pantalla permanece menor al indicado en el query, al pasar el tamaño especificado los estilos se desactivan*/
+
+@media screen and (max-width: 380px) {
+  main .main-container h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* min-width activa los estilos cuando la pantalla alcanza los 728px o mas, con medidas de pantalla menores a 728px los estilos especificados en el media query no surten efecto.*/
+
+@media screen and (min-width: 728px) {
+  main .main-container h2 {
+    font-size: 3rem;
+    text-align: center;
+    padding-left: 1rem;
   }
 
-  .links-container a {
-    text-decoration: none;
+  main .main-container p {
+    font-size: 2rem;
     text-align: center;
-    font-size: 1.2rem;
-    margin-left: 2rem;
-    font-weight: bold;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .nav {
-    height: 80px;
+  .img-container {
+    width: 40%;
+    margin: 0;
   }
 
-  .nav .logo-container h2 {
-    font-size: 2rem;
+  main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10%;
   }
 
-  .nav div svg {
-    width: 40px;
-    height: 40px;
+  .main-container {
+    align-self: stretch;
+    margin: 0;
+    min-width: 690px;
+  }
+
+  main .main-container h2 {
+    font-size: 4.5rem;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+  }
+
+  main .main-container p {
+    margin: 0;
+    font-size: 3rem;
+    text-align: left;
   }
 }
